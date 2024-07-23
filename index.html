@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Zesspree</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<style>
+    body {
+        background-color: rgb(255, 255, 255);
+        height: 2500px;
+    }
+    #headertext {
+        width: auto;
+        height: auto;
+        font-size: 31px;
+        position: absolute;
+        left: 11px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #header {
+        background-color: rgb(16, 16, 16);
+        color: rgb(255, 255, 255);
+        height: 80px;
+        width: 1280px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    #A-A {
+        position: absolute;
+        top: 22.5px;
+        right: 30px;
+       padding: 6px 8px;
+       background-color: rgb(255, 255, 255);
+       color: rgb(0, 0, 0);
+       border-radius: 7px;
+       border-style: solid;
+       border-color: black;
+       font-size: 15px;
+    }
+    #A-B {
+        position: absolute;
+        top: 20px;
+        right: 140px;
+       padding: 8px 10px;
+       background-color: rgb(0, 0, 0);
+       color: rgb(255, 255, 255);
+       border-radius: 7px;
+       border-style: solid;
+       border-color: rgb(255, 255, 255);
+       text-decoration: none;
+
+    }
+    #A-C {
+        position: absolute;
+        top: 20px;
+        right: 240px;
+       padding: 8px 10px;
+       background-color: rgb(0, 0, 0);
+       color: rgb(255, 255, 255);
+       border-radius: 7px;
+       border-style: solid;
+       border-color: rgb(255, 255, 255);
+       text-decoration: none;
+    }
+    #counterv2 {
+        position: absolute;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        top: 4px;
+        right: 340px;
+        padding: 7px 9px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 7px;
+        border: solid;
+        border-color: white;
+        text-decoration: none;
+        text-align: center;
+        width: 70px;
+    }
+    #img-t1 {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 15px;
+        left: 155px;
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.568);
+        border-radius: 5px;
+    }
+    #AccBar {
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        background-color: rgb(0, 0, 0);
+        top: 80px;
+        right: 50px;
+        display: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: white;
+    }
+    #profilepic {
+        background-image: url(sks.png);
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 10px;
+        left: 113px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: transparent;
+        border: solid;
+        border-color: white;
+    }
+    #profilepic:hover{
+        background-color: rgb(230, 230, 230);
+        background-image: none;
+        color: black;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        transition-duration: 250ms;
+        height: 73px;
+        width: 73px;
+        border-color: linear-gradient(rgb(230, 230, 230),rgb(0, 0, 0));
+    }
+    #profilename {
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        bottom: 55px;
+        text-align: center;
+        overflow: hidden;
+        font-size: 20px;
+    }
+    #filePN{
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        color: rgb(255, 242, 0);
+        background-color: rgb(0, 0, 0);
+        bottom: 25px;
+        text-align: center;
+        overflow: hidden;
+        font-size: 20px;
+    }
+    #SwAcc{
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        height: 30px;
+        padding: 6px 7px;
+        color: white;
+        background-color: rgb(0, 213, 0);
+        border: solid;
+        border: rgb(0, 213, 0);
+        border-radius: 5px;
+        transition: 80ms ease-in-out 80ms;
+    }
+    #SwAcc:hover {
+        background-color: rgba(0, 213, 0, 0.824);
+        padding: 8px 9px;
+    }
+    #LogoutAcc{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        height: 30px;
+        padding: 6px 7px;
+        color: white;
+        background-color: rgb(213, 0, 0);
+        border: solid;
+        border: rgb(213, 0, 0);
+        border-radius: 5px;
+    }
+    #LogoutAcc:hover {
+        background-color: transparent;
+        color: transparent;
+    }
+    #LogoutAcc[data-tooltip]:hover::after {
+        background-color: rgba(255, 0, 0, 0.881);
+        padding: 8px 8px;
+        content: attr(data-tooltip);
+        text-align: center;
+        color: white;
+        transition-duration: 250ms;
+        border-radius: 5px;
+    }
+    #myNoti {
+            position: fixed;
+            top: 180px;
+            left: 380px;
+            overlay: auto;
+            padding: 10px 12px;
+            width: 600px;
+            display: none;
+            z-index: 10;
+            height: 90px;
+            border-radius: 20px;
+            background-color: rgb(255, 255, 255);
+            border-style: double;
+            border-color: black;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: small;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            backdrop-filter:inherit;
+    }
+    #AIP-close {
+        position: absolute;
+        right: 12px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-size: medium;
+        font-weight: bold;
+        padding: 2px 5px;
+        height: 27px;
+        width: 27px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: black;
+        text-align: center;
+    }
+    #product-container {
+        background-color: rgb(241, 241, 241);
+        position: absolute;
+        text-align: center;
+        top: 135px;
+        left: 20px;
+        width: 230px;
+        height: 370px;
+        color: rgb(0, 0, 0);
+        box-shadow: 5px 5px 5px rgba(168, 168, 168, 0.527);
+        border-radius: 10px;
+        padding: 10px 12px;
+    }
+    #product-img {
+        border-radius: 20px;
+        height: 200px;
+    }
+    #product-name {
+        font-weight: bolder;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 17px;
+    }
+    #product-price {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+    }
+    #Seemore,#Seemore1,#Seemore2,#Seemore3,#Seemore4,#Seemore5,#Seemore6,#Seemore7,#Seemore8 {
+        background-color: rgb(255, 230, 0);
+        border-radius: 7px;
+        padding: 10px 12px;
+        border: none;
+    }
+    #BBGZ {
+        height: 470px;
+        position: absolute;
+        top: 50px;
+        right: 0px;
+        width: 980px;
+        filter: blur(0.75px);
+    }
+    #blackcover1 {
+        position: absolute;
+        top: 2500px;
+        left: 0px;
+        color: rgb(218, 218, 218);
+        width: 1240px;
+        height: 230px;
+        background-color: rgb(20, 20, 20);
+        padding: 20px 20px;
+        text-align: center;
+    }
+    .AB1 {
+        font-family: monospace;
+        font-size: 17px;
+        font-weight: 600;
+        color: rgb(218, 218, 218);
+    }
+    .myblackout1 {
+        height: 520px;
+        position: absolute;
+        top: 30px;
+        right: 0px;
+        width: 1280px;
+        background-color: black;
+        z-index: -1;
+    }
+    #Greetings {
+        padding: 12px 15px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        z-index: 10;
+        color: black;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 210px;
+        left: 650px;
+        font-size: 35px;
+        border-radius:35px;
+        border-color: black;
+        border-style: double;
+    }
+    #tick-mark {
+        position: absolute;
+        font: bold;
+        font-size: 35px;
+        top: 22px;
+        left: 305px;
+        background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    .ProOverview {
+        position: absolute;
+        left: 30px;
+        top: 40px;
+        z-index: 100;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    #ProductDisview {
+        position: fixed;
+        right: 250px;
+        top: 50px;
+        z-index: 9;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        background-color: rgb(212, 212, 212);
+        width: 700px;
+        height: 520px;
+        box-shadow: rgb(130, 130, 130) 1px 1.5px 1.5px;
+        border-radius: 20px;
+        display: none;
+    }
+    #ATC {
+        position: absolute;
+        top: 350px;
+        right: 70px;
+        width: 100px;
+        height: 35px;
+        text-align: center;
+        color: black;
+        background-color: yellow;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #slideshow {
+        margin-top: 20px;
+        margin-left: 50px;
+        width: 350px;
+        height: 450px;
+        background-color: rgb(230, 230, 230);
+        border-radius: 10px;
+    }
+    #closeProDisview {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.11);
+        font-size: 25px;
+        border: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding: 5px 9px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div id="header">
+   <header>
+    <h1 id="headertext">Zesspree</h1>
+    <img src="sks.png" id="img-t1">
+   </header>
+   <button  id="A-A" onclick="toggleAcc()">ID card</button>
+   <a  id="A-B" onscroll="aboutUS()">About Us</a>
+   <a  id="A-C" href="contact.html">Contact</a>
+   <p id="counterv2">🛒 <span id="counter">0<span></p>
+   <div id="AccBar">
+    <a href="settings.html" id="profilepic"><p>🛠</p></a>
+    <p><h3 id="profilename"></h3></p>
+    <p id="filePN"></p>
+    <button onclick="AccSwitch()" id="SwAcc">Switch Account</button>
+    <button onclick="AccLogout()" id="LogoutAcc" data-tooltip="Are you sure?">Log out</button>
+   </div>
+    <div id="product-container">
+        <div id="product #0">
+            <img src="Untitlebkd.jpg" id="product-img">
+            <p id="product-name">Honey Mint Soap</p>
+            <p id="product-price">$15.90 TTD</p>
+            <button id="Seemore">See More</button>
+            <div id="myNoti">
+                <button id="AIP-close">X</button>
+                <h1>This Item has been added to cart</h1>
+                <p id="tick-mark">✔</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="blackcover1">
+        <h1>About Us</h1>
+        <p><h3 class="AB1">Here at Zesspree, we aim to make our products as Eco-friendly as possible. We offer many classic products that have exist for years, and new products with our own unique composition. We are constantly making new strides to bring you items better tailored to your needs. We hope you found one of our products to your satisfaction. Our mission is to promote environment friendly product alternatives that surpass their less effective, more dangerous and harmful counterparts. We have an 89% natural standard for all of our products. So we encourage you to ease your mind, and remember that our products come:</h3></p>
+        <p><h2>From our bees, For your bliss</h2></p>
+        <a href="">instagram</a>
+        <a href="">tiktok</a>
+    </div>
+    <div class="myblackout1">
+        <h1 class="ProOverview">Featured Product</h1>
+    <img src="Beesofjuly.jpg" id="BBGZ">
+    <p id="Greetings">Welcome to Zesspree</p>
+   </div>
+   <p class="mainproducts">Product List</p>
+   <div id="product-container1">
+    <div id="product #1">
+        <img src="Untitlebkd.jpg" id="product-img1">
+        <p id="product-name">Raw Woodland Honey 300ml</p>
+        <p id="product-price">$59.90 TTD</p>
+        <button id="Seemore1">See More</button>
+    </div>
+<div>
+    <div id="product-container2">
+        <div id="product #2">
+            <img src="Untitlebkd.jpg" id="product-img2">
+            <p id="product-name">Raw Woodland Honey 300ml + Honeycomb</p>
+            <p id="product-price">$64.90 TTD</p>
+            <button id="Seemore2">See More</button>
+        </div>
+    <div>
+        <div id="product-container3">
+            <div id="product #3">
+                <img src="Untitlebkd.jpg" id="product-img3">
+                <p id="product-name">Honey Lemon Soap</p>
+                <p id="product-price">$15.80 TTD</p>
+                <button id="Seemore3">See More</button>
+            </div>
+        <div>
+            <div id="product-container4">
+                <div id="product #4">
+                    <img src="Untitlebkd.jpg" id="product-img4">
+                    <p id="product-name">Honey and Wax soap - Skin Cleansing Bar</p>
+                    <p id="product-price">$48.90 TTD</p>
+                    <button id="Seemore4">See More</button>
+                </div>
+            <div>
+                <div id="product-container5">
+                    <div id="product #5">
+                        <img src="Untitlebkd.jpg" id="product-img5">
+                        <p id="product-name">Honey infused cream - Muscular Soreness Reliever</p>
+                        <p id="product-price">$17.40 TTD</p>
+                        <button id="Seemore5">See More</button>
+                    </div>
+                <div>
+            <div id="product-container6">
+             <div id="product #6">
+             <img src="Untitlebkd.jpg" id="product-img6">
+             <p id="product-name">Honey cold medicine 60ml</p>
+             <p id="product-price">$55.90 TTD</p>
+             <button id="Seemore6">See More</button>
+                </div>
+            <div>
+                <div id="product-container7">
+                    <div id="product #7">
+                    <img src="Untitlebkd.jpg" id="product-img7">
+                    <p id="product-name">Honey Pepper Sauce 120ml</p>
+                    <p id="product-price">$26.40 TTD</p>
+                    <button id="Seemore7">See More</button>
+                       </div>
+                   <div>
+                    <div id="product-container8">
+                        <div id="product #8">
+                        <img src="Untitlebkd.jpg" id="product-img8">
+                        <p id="product-name">Honey Jam 300ml</p>
+                        <p id="product-price">$45.90 TTD</p>
+                        <button id="Seemore8">See More</button>
+                           </div>
+                       <div id="ProductDisview">
+                        <button id="closeProDisview">X</button>
+                        <div id="slideshow">
+                            <img src="Untitlebkd.jpg" id="igm1">
+                            <img src="Bee Webby.png" id="igm2">
+                            <img src="Beesofjuly.jpg" id="igm3">
+                            <img src="Beeish.jpg" id="igm4">
+                            <img src="Untitlebkd.jpg" id="igm5">
+                            <div id="slidebuttons">
+                            <a onclick="Slimg1()"><img src="Untitlebkd.jpg" id="igm1-"></a>
+                            <img src="Bee Webby.png" id="igm2-">
+                            <a onclick="Slimg3()"><img src="Beesofjuly.jpg" id="igm3-"></a>
+                            <img src="Beeish.jpg" id="igm4-">
+                            <img src="Untitlebkd.jpg" id="igm5-">
+                            </div>
+                        </div>
+                        <div id="productdisplay">
+
+                        </div>
+                        <p><button onclick="incrementCounter()" id="ATC">Add to Cart</button></p>
+                       </div>
+</body>
+<script>
+        const Simg1 = document.getElementById('igm1');
+        const Simg2 = document.getElementById('igm2');
+        const Simg3 = document.getElementById('igm3');
+        const Simg4 = document.getElementById('igm4');
+        const Simg5 = document.getElementById('igm5');
+        const slideimg1 = document.getElementById('igm1-');
+        const slideimg2 = document.getElementById('igm2-');
+        const slideimg3 = document.getElementById('igm3-');
+        const slideimg4 = document.getElementById('igm4-');
+        const slideimg5 = document.getElementById('igm5-');
+        slideimg1.addEventListener('click', function() {
+                Simg3.style.display = 'none';
+                Simg2.style.display = 'none';
+                Simg1.style.display = 'block';
+                Simg4.style.display = 'none';
+                Simg5.style.display = 'none';
+        });
+        slideimg2.addEventListener('click', function() {
+                Simg3.style.display = 'none';
+                Simg2.style.display = 'block';
+                Simg1.style.display = 'none';
+                Simg4.style.display = 'none';
+                Simg5.style.display = 'none';
+        });
+        slideimg3.addEventListener('click', function() {
+                Simg3.style.display = 'block';
+                Simg2.style.display = 'none';
+                Simg1.style.display = 'none';
+                Simg4.style.display = 'none';
+                Simg5.style.display = 'none';
+        });
+        slideimg4.addEventListener('click', function() {
+                Simg3.style.display = 'none';
+                Simg2.style.display = 'none';
+                Simg1.style.display = 'none';
+                Simg4.style.display = 'block';
+                Simg5.style.display = 'none';
+        });
+        slideimg5.addEventListener('click', function() {
+                Simg3.style.display = 'none';
+                Simg2.style.display = 'none';
+                Simg1.style.display = 'none';
+                Simg4.style.display = 'none';
+                Simg5.style.display = 'block';
+        });
+    const mie = document.getElementById('ProductDisview');
+    const Viewbutton = document.getElementById('Seemore');
+    const Viewbutton1 = document.getElementById('Seemore1');
+    const Viewbutton2 = document.getElementById('Seemore2');
+    const Viewbutton3 = document.getElementById('Seemore3');
+    const Viewbutton4 = document.getElementById('Seemore4');
+    const Viewbutton5 = document.getElementById('Seemore5');
+    const Viewbutton6 = document.getElementById('Seemore6');
+    const Viewbutton7 = document.getElementById('Seemore7');
+    const Viewbutton8 = document.getElementById('Seemore8');
+    const Closebutton = document.getElementById('closeProDisview');
+        Viewbutton.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton1.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton2.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton3.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton4.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton5.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton6.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton7.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Viewbutton8.addEventListener('click', function() {
+            mie.style.display = 'block';
+        });
+        Closebutton.addEventListener('click', function() {
+            mie.style.display = 'none';
+        });
+
+    function toggleAcc() {
+        const mei = document.getElementById('AccBar');
+        if (mei.style.display === 'none') {
+            mei.style.display = 'block';
+        } else {
+            mei.style.display = 'none';
+        }
+    }
+    function incrementCounter() {
+        const counterElem = document.querySelector('#counter'),
+        counter = parseInt(counterElem.textContent, 0);
+        counterElem.textContent = counter +1;
+        let like = counterElem.innerHTML; 
+        const viewButton = document.getElementById('ATC');
+        const closeButton = document.getElementById('AIP-close');
+        const laret = document.getElementById('myNoti');
+
+        viewButton.addEventListener('click', function() {
+            laret.style.display = 'block';
+        });
+        closeButton.addEventListener('click', function() {
+            laret.style.display = 'none';
+        });
+        if (parseInt(like, 10) === 1) {
+            laret.style.display = 'block';
+        }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const products = [
+        {
+            id: 1,
+            name: 'Honey and Wax Soap',
+            price: 10.00,
+            image: 'product1.jpg'
+        },
+        {
+            id: 2,
+            name: 'Beeswax Candle',
+            price: 15.00,
+            image: 'product2.jpg'
+        },
+        {
+            id: 3,
+            name: 'Raw Honey Jar',
+            price: 20.00,
+            image: 'product3.jpg'
+        }
+        // Add more products as needed
+    ]});
+
+    const productContainer = document.getElementById('product-container');
+    const checkoutContainer = document.getElementById('checkout-container');
+    const paymentContainer = document.getElementById('payment-container');
+    // Render products
+    products.forEach(product => {
+        const productBox = document.createElement('div');
+        productBox.classList.add('product-box');
+        productBox.id = `product-${product.id}`;
+        productBox.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-details">
+                <div class="product-name">${product.name}</div>
+                <div class="product-price">$${product.price.toFixed(2)}</div>
+                <div class="quantity-container">
+                    <input type="number" class="quantity-input" value="1" min="1" onchange="updateTotal()">
+                    <button class="remove-item" onclick="removeItem(${product.id})">Remove</button>
+                </div>
+            </div>
+        `;
+        productContainer.appendChild(productBox);
+    });
+</script>
+<script src="main.js"></script>
+</html>
